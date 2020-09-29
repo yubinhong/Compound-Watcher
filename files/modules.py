@@ -6,7 +6,7 @@ import prettytable
 import urllib.request 
 from modules import *
 from http.cookiejar import CookieJar
-from web3.auto.infura import w3
+from web3 import Web3
 from urllib.request import build_opener
 from termcolor import colored
 from urllib.error import HTTPError
@@ -15,6 +15,7 @@ from pushbullet.pushbullet import PushBullet
 with open('keys.txt', 'r') as myfile:
     keys=json.load(myfile)
     
+w3 = Web3(Web3.HTTPProvider(keys['infura-api']))
 if w3.isConnected() == True:
     print("The bot is connected to the ethereum network")
     time.sleep(1)
@@ -30,10 +31,6 @@ with urllib.request.urlopen(abisite) as url:
 
 contract = w3.eth.contract(address=unitroller, abi=abi)
 
-
-apiKey = keys["pushbullet-api"]
-p = PushBullet(apiKey)
-devices = p.getDevices()
 
 site= "https://api.compound.finance/api/v2/account?page_size=20"
 hdr = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
@@ -127,8 +124,7 @@ def parse():
                 balance2 += bresult_borrow + "\n"
         x.add_row([address, round(health, 3), beth_format, balance2, balance3, colored(estimated_p, 'green', attrs=['bold']), onchainliquidity])
         if (((usdeth*beth)/2)*0.05 > 10) and (onchainliquidity == colored("NOT SAFU", 'red', attrs=['bold'])):
-            p.pushNote(devices[0]["iden"], 'Urgent', 'EP ${0} \n{1} \nNOT SAFU \nSend {2}/2 \nReceive {3}'.format(estimated_p, address, balance2, balance3))
-
+            pass
     print(x)
     time.sleep(20)
 
