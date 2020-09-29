@@ -75,10 +75,10 @@ def parse():
     x = prettytable.PrettyTable()
     x.field_names = ["Address", "Health", "B. ETH", "B.Tokens", "Supply", "Estimated profit", "On Chain Liquidity"]
 
-    req = requests.get("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD")
+    req = requests.get("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD").json()
 
     account_list = api()
-    eth_price = json.load(req)
+    eth_price = req
     usd_eth = float(eth_price["USD"])
 
     for account in account_list["accounts"]:
