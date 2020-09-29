@@ -106,7 +106,10 @@ def parse():
         balance3 = ''
         address = account["address"]
         onchainliquidity = getAccountLiquidity(address)
-        health = float(account["health"]["value"])
+        try:
+            health = float(account["health"]["value"])
+        except Exception as e:
+            health = 0
         beth = float(account["total_borrow_value_in_eth"]["value"])
         beth_format = "{:.8f} Ξ".format(round(beth, 8)) + "\n" + colored("{:.3f}".format(round(usdeth*beth, 3)) + "$", 'green')
         estimated_p = "{:.3f}".format(((usdeth*beth)/2)*0.05) + "$"
