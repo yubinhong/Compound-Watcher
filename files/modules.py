@@ -52,8 +52,8 @@ def api():
     global response
     site = "https://api.compound.finance/api/v2/account"
     params = {
-        'page_size': 20,
-        'min_borrow_value_in_eth': {'value': "0.2"}
+        "page_size": 20,
+        "min_borrow_value_in_eth": {"value": "0.2"}
     }
     headers = {
         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11',
