@@ -26,7 +26,6 @@ Start by installing the required python modules
 
 > pip3 install termcolor
 
-> pip3 install git+https://github.com/Azelphur/pyPushBullet.git
 
 Fill in your pushbullet and infura keys  and you're ready to start the bot!
 > python3 app.py
