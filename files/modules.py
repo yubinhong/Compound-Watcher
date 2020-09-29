@@ -10,7 +10,6 @@ from web3 import Web3
 from urllib.request import build_opener
 from termcolor import colored
 from urllib.error import HTTPError
-from pushbullet.pushbullet import PushBullet
 
 with open('keys.txt', 'r') as myfile:
     keys=json.load(myfile)
