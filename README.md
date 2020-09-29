@@ -1,5 +1,5 @@
 # Compound Watcher
- A python bot that watches potential liquidations on Compound Finance and sends notifications through pushbullet
+ A python bot that watches potential liquidations on Compound Finance
 
 ![Image of Bot](https://i.imgur.com/MN6e8m4.png)
 
@@ -12,9 +12,6 @@ The bot shows further information about every address :
 * Borrowed assets 
 * Estimated profit if liquidated
 
-In the case an address can be liquidited, the bot sends a notification through pushbullet.
-
-*A pushbullet free api is needed to run the bot*
 
 ## Install the bot
 To install the bot, you need to have:
