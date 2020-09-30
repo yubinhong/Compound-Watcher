@@ -55,7 +55,8 @@ def api():
     site = "https://api.compound.finance/api/v2/account"
     params = {
         "page_size": keys['page_size'],
-        "min_borrow_value_in_eth": {"value": keys['min_borrow_value_in_eth']}
+        "min_borrow_value_in_eth": {"value": keys['min_borrow_value_in_eth']},
+        "max_health": {"value": keys["max_health"]}
     }
     try:
         req = requests.post(site, data=json.dumps(params))
