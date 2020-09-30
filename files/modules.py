@@ -87,7 +87,7 @@ def parse():
         except Exception as e:
             health = 0
         beth = float(account["total_borrow_value_in_eth"]["value"])
-        beth_format = "{:.8f} Ξ".format(round(beth, 8)) + "\n" + colored("{:.3f}".format(round(usd_eth * beth, 3)) + "$",
+        beth_format = "{:.8f} ETH".format(round(beth, 8)) + "\n" + colored("{:.3f}".format(round(usd_eth * beth, 3)) + "$",
                                                                          'green')
         estimated_p = "{:.3f}".format(((usd_eth * beth) / 2) * 0.05) + "$"
         tokens = account["tokens"]
