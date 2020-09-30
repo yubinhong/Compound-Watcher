@@ -17,6 +17,11 @@ else:
 
 
 def getAccountLiquidity(addy):
+    '''
+    查询账户的健康值是否安全
+    :param addy: 账户地址
+    :return: str
+    '''
     unitroller = keys["unitroller"]
     abisite = keys["abi"]
     abi = requests.get(abisite).json()
@@ -31,28 +36,11 @@ def getAccountLiquidity(addy):
         return colored("NOT SAFU", 'red', attrs=['bold'])
 
 
-def token_symbol(tokenname):
-    if tokenname == "0x6c8c6b02e7b2be14d4fa6022dfd6d75921d90e4e":
-        return "BAT"
-    if tokenname == "0xf5dce57282a584d2746faf1593d3121fcac444dc":
-        return "DAI"
-    if tokenname == "0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5":
-        return "cETH"
-    if tokenname == "0x158079ee67fce2f58472a96584a73c7ab9ac95c1":
-        return "REP"
-    if tokenname == "0x39aa39c021dfbae8fac545936693ac917d5e7563":
-        return "USDC"
-    if tokenname == "0xb3319f5d18bc0d84dd1b4825dcde5d5f7266d407":
-        return "ZRX"
-    if tokenname == "0xc11b1268c1a384e55c48c2391d8d480264a3a7f4":
-        return "wBTC"
-    if tokenname == "0x5d3a536e4d6dbd6114cc1ead35777bab948e3643":
-        return "cDAI"
-    if tokenname == "0xf650c3d88d12db855b8bf7d11be6c55a4e07dcc9":
-        return "cUSDT"
-
-
 def api():
+    '''
+    commpound 账户信息
+    :return: 账户信息列表, str
+    '''
     global response
     site = "https://api.compound.finance/api/v2/account"
     params = {
@@ -70,6 +58,10 @@ def api():
 
 
 def parse():
+    '''
+    格式化账户信息，并输出
+    :return:
+    '''
     x = prettytable.PrettyTable()
     x.field_names = ["Address", "Health", "B. ETH", "B.Tokens", "Supply", "Estimated profit", "On Chain Liquidity"]
 
@@ -96,12 +88,12 @@ def parse():
         for token in tokens:
             balance_borrow = token["borrow_balance_underlying"]["value"]
             balance_supply = token["supply_balance_underlying"]["value"]
-            token_address = token["address"]
+            token_symbol = token['symbol']
             if float(balance_supply) > 0:
-                bresult_supply = "{:.8f} ".format(round(float(balance_supply), 8)) + token_symbol(token_address)
+                bresult_supply = "{:.8f} ".format(round(float(balance_supply), 8)) + token_symbol
                 balance3 += bresult_supply + "\n"
             if float(balance_borrow) > 0:
-                bresult_borrow = "{:.8f} ".format(round(float(balance_borrow), 8)) + token_symbol(token_address)
+                bresult_borrow = "{:.8f} ".format(round(float(balance_borrow), 8)) + token_symbol
                 balance2 += bresult_borrow + "\n"
         x.add_row(
             [address, round(health, 3), beth_format, balance2, balance3, colored(estimated_p, 'green', attrs=['bold']),
