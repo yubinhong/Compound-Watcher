@@ -6,7 +6,7 @@ from web3 import Web3
 from termcolor import colored
 import requests
 
-with open('keys.txt', 'r') as myfile:
+with open('config.json', 'r') as myfile:
     keys = json.load(myfile)
 
 w3 = Web3(Web3.HTTPProvider(keys['infura-api']))
@@ -55,8 +55,8 @@ def api():
     global response
     site = "https://api.compound.finance/api/v2/account"
     params = {
-        "page_size": 20,
-        "min_borrow_value_in_eth": {"value": "1.0"}
+        "page_size": keys['page_size'],
+        "min_borrow_value_in_eth": {"value": keys['min_borrow_value_in_eth']}
     }
     try:
         req = requests.post(site, data=json.dumps(params))
