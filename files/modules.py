@@ -47,6 +47,8 @@ def token_symbol(tokenname):
         return "ZRX"
     if tokenname == "0xc11b1268c1a384e55c48c2391d8d480264a3a7f4":
         return "wBTC"
+    if tokenname == "0x5d3a536e4d6dbd6114cc1ead35777bab948e3643"
+        return "cDAI"
 
 
 def api():
@@ -54,10 +56,10 @@ def api():
     site = "https://api.compound.finance/api/v2/account"
     params = {
         "page_size": 20,
-        "min_borrow_value_in_eth": {"value": "0.2"}
+        "min_borrow_value_in_eth": {"value": "1.0"}
     }
     try:
-        req = requests.get(site, data=json.dumps(params))
+        req = requests.post(site, data=json.dumps(params))
         response = req.json()
     except Exception as e:
         response = []
