@@ -9,14 +9,15 @@ import requests
 with open('keys.txt', 'r') as myfile:
     keys = json.load(myfile)
 
+w3 = Web3(Web3.HTTPProvider(keys['infura-api']))
+if w3.isConnected():
+    print("The bot is connected to the ethereum network")
+else:
+    print("The bot can't connect to the eth network")
+    quit()
+
 
 def getAccountLiquidity(addy):
-    w3 = Web3(Web3.HTTPProvider(keys['infura-api']))
-    if w3.isConnected():
-        print("The bot is connected to the ethereum network")
-    else:
-        print("The bot can't connect to the eth network")
-        quit()
     unitroller = keys["unitroller"]
     abisite = keys["abi"]
     abi = requests.get(abisite).json()
