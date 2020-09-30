@@ -104,5 +104,5 @@ def parse():
              onchainliquidity])
         if (((usd_eth * beth) / 2) * 0.05 > 10) and (onchainliquidity == colored("NOT SAFU", 'red', attrs=['bold'])):
             pass
-    print('================================================================')
+    print(x)
     time.sleep(20)
