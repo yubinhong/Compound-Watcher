@@ -1,7 +1,6 @@
 import time
 import json
 import prettytable
-from modules import *
 from web3 import Web3
 from termcolor import colored
 import requests

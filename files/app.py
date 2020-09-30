@@ -1,7 +1,7 @@
 import os
 import json 
 with open('config.json', 'r') as myfile:
-    keys=json.load(myfile)
+    keys = json.load(myfile)
 os.environ['WEB3_INFURA_API_KEY'] = keys["infura-api"]
 os.environ['WEB3_INFURA_API_SECRET'] = keys["infura-private"]
 
