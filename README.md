@@ -19,7 +19,7 @@ To install the bot, you need to have:
  * pip3
 
 Start by installing the required python modules
-> pip3 install web3 prettytable termcolor
+> pip3 install web3 prettytable termcolor requests
 
 
 Fill in your pushbullet and infura keys  and you're ready to start the bot!
