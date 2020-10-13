@@ -88,7 +88,7 @@ def parse():
         for token in tokens:
             balance_borrow = token["borrow_balance_underlying"]["value"]
             balance_supply = token["supply_balance_underlying"]["value"]
-            token_symbol = token['symbol']
+            token_symbol = token['symbol'][1:]
             if float(balance_supply) > 0:
                 bresult_supply = "{:.8f} ".format(round(float(balance_supply), 8)) + token_symbol
                 balance3 += bresult_supply + "\n"
