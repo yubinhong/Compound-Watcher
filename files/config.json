@@ -1,9 +1,55 @@
 {
+    "account": {
+        "private_key": ""
+    },
     "infura-api": "",
     "infura-private": "",
     "unitroller": "0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B",
-    "abi": "http://api.etherscan.io/api?module=contract&action=getabi&address=0x178053c06006e67e09879c09ff012ff9d263df29&format=raw",
+    "ceth_liquidator": "0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5",
+    "unitroller_abi": "http://api.etherscan.io/api?module=contract&action=getabi&address=0x7b5e3521a049C8fF88e6349f33044c6Cc33c113c&format=raw",
+    "ceth_liquidator_abi": "http://api.etherscan.io/api?module=contract&action=getabi&address=0x4Ddc2D193948926D02f9B1fE9e1daa0718270ED5&format=raw",
     "page_size": 10,
     "min_borrow_value_in_eth": 0.2,
-    "max_health": "1.0"
+    "max_health": "1.0",
+    "profit": 20,
+    "cerc20_dict": {
+        "0x5d3a536E4D6DbD6114cc1Ead35777bAB948E3643": {
+            "abi": "0xbb8be4772faa655c255309afc3c5207aa7b896fd",
+            "precise": 18
+        },
+        "0x39AA39c021dfbaE8faC545936693aC917d5E7563": {
+            "abi": "0x39AA39c021dfbaE8faC545936693aC917d5E7563",
+            "precise":6
+        },
+        "0xB3319f5D18Bc0D84dD1b4825Dcde5d5f7266d407": {
+            "abi": "0xB3319f5D18Bc0D84dD1b4825Dcde5d5f7266d407",
+            "precise": 18
+        },
+        "0xf650C3d88D12dB855b8bf7D11Be6C55A4e07dCC9": {
+            "abi": "0x976aa93ca5aaa569109f4267589c619a097f001d",
+            "precise": 6
+        },
+        "0x6C8c6b02E7b2BE14d4fA6022Dfd6d75921D90E4E": {
+            "abi": "0x6C8c6b02E7b2BE14d4fA6022Dfd6d75921D90E4E",
+            "precise": 18
+        },
+        "0xC11b1268C1A384e55C48c2391d8d480264A3A7F4": {
+            "abi": "0xC11b1268C1A384e55C48c2391d8d480264A3A7F4",
+            "precise": 8
+        },
+        "0xF5DCe57282A584D2746FaF1593d3121Fcac444dC": {
+            "abi": "0xF5DCe57282A584D2746FaF1593d3121Fcac444dC",
+            "precise": 18
+        },
+        "0x70e36f6BF80a52b3B46b3aF8e106CC0ed743E8e4": {
+            "abi": "0x338f7e5d19d9953b76dd81446b142c2d9fe03482",
+            "precise": 18
+        },
+        "0x158079Ee67Fce2f58472A96584A73C7Ab9AC95c1": {
+            "abi": "0x158079Ee67Fce2f58472A96584A73C7Ab9AC95c1",
+            "precise": 18
+        }
+    },
+    "borrow_token": "cUSDC",
+    "supply_token": "cETH"
 }
